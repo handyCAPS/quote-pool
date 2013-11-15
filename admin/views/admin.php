@@ -23,8 +23,8 @@
 			<label for="author">Auteur</label>
 			<input type="text" name="author"><br>
 			<label for="quote">Quote</label>
-			<textarea name="quote" id="quote"></textarea><br>
-			<input type="submit" value="Submit">
+			<textarea name="quote" id="quote" rows="10"></textarea><br>
+			<input type="submit" value="Opslaan">
 		</fieldset>
 	</form>
-</div>
+</div><!--  end quotePoolWrap  -->

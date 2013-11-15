@@ -2,18 +2,38 @@
 #quotePoolWrap form {
 	width: 25%;
 	min-width: 30em;
+	margin-top: 2.618em;
+}
+
+#quotePoolWrap form fieldset {
+	border: 1px solid #C2C2C2;
+	padding-top: 2.618em;
+}
+
+#quotePoolWrap form legend {
+	font-size: 2.618em;
+	margin-left: 0.618em;
 }
 
 #quotePoolWrap form label {
-	width: 8em;
+	width: 33%;
 	display: inline-block;
 	text-align: right;
 	background-color: green;
 	margin-right: 0;
 	padding: 0.3em 0.6em;
 	color: #FFF;
+	cursor: default;
 }
 
-#quotePoolWrap form input, #quotePoolWrap form textarea, #quotePoolWrap form label {
-	margin: 1.618em 0;
+#quotePoolWrap form input[type="text"], #quotePoolWrap form textarea {
+	width: 90%;
+}
+
+#quotePoolWrap form input, #quotePoolWrap form textarea {
+	margin: 1.618em 1em;
+}
+
+input[type="submit"] {
+	float: right;
 }

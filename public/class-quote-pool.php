@@ -73,6 +73,8 @@ class Quote_Pool {
 		add_action( 'TODO', array( $this, 'action_method_name' ) );
 		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
+		add_option('quote-pool-version', $this->get_version() );
+
 	}
 
 	/**
@@ -296,6 +298,10 @@ class Quote_Pool {
 	 */
 	public function filter_method_name() {
 		// TODO: Define your filter hook callback here
+	}
+
+	public function get_version() {
+		return self::VERSION;
 	}
 
 }
