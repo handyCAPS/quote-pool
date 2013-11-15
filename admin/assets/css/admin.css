@@ -1,0 +1,19 @@
+/* This stylesheet is used to style the admin option form of the plugin. */
+#quotePoolWrap form {
+	width: 25%;
+	min-width: 30em;
+}
+
+#quotePoolWrap form label {
+	width: 8em;
+	display: inline-block;
+	text-align: right;
+	background-color: green;
+	margin-right: 0;
+	padding: 0.3em 0.6em;
+	color: #FFF;
+}
+
+#quotePoolWrap form input, #quotePoolWrap form textarea, #quotePoolWrap form label {
+	margin: 1.618em 0;
+}
