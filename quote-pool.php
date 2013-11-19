@@ -46,20 +46,10 @@ require_once( plugin_dir_path( __FILE__ ) . '/public/class-quote-pool.php' );
  * Register hooks that are fired when the plugin is activated or deactivated.
  * When the plugin is deleted, the uninstall.php file is loaded.
  *
- * TODO:
- *
- * - replace Quote_Pool with the name of the class defined in
- *   `class-quote-pool.php`
  */
 register_activation_hook( __FILE__, array( 'Quote_Pool', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'Quote_Pool', 'deactivate' ) );
 
-/*
- * TODO:
- *
- * - replace Quote_Pool with the name of the class defined in
- *   `class-quote-pool.php`
- */
 add_action( 'plugins_loaded', array( 'Quote_Pool', 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
@@ -67,12 +57,6 @@ add_action( 'plugins_loaded', array( 'Quote_Pool', 'get_instance' ) );
  *----------------------------------------------------------------------------*/
 
 /*
- * TODO:
- *
- * - replace `class-plugin-admin.php` with the name of the plugin's admin file
- * - replace Quote_Pool_Admin with the name of the class defined in
- *   `class-quote-pool-admin.php`
- *
  * If you want to include Ajax within the dashboard, change the following
  * conditional to:
  *

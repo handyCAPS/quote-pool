@@ -16,7 +16,6 @@
  * If you're interested in introducing public-facing
  * functionality, then refer to `class-plugin-name.php`
  *
- * TODO: Rename this class to a proper name for your plugin.
  *
  * @package Quote_Pool_Admin
  * @author  Your Name <email@example.com>
@@ -60,10 +59,6 @@ class Quote_Pool_Admin {
 
 		/*
 		 * Call $plugin_slug from public plugin class.
-		 *
-		 * TODO:
-		 *
-		 * - Rename "Quote_Pool" to the name of your initial plugin class
 		 *
 		 */
 		$plugin = Quote_Pool::get_instance();
@@ -179,11 +174,6 @@ class Quote_Pool_Admin {
 		 *
 		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 		 *
-		 * TODO:
-		 *
-		 * - Change 'Page Title' to the title of your plugin admin page
-		 * - Change 'Menu Text' to the text for menu item for the plugin settings page
-		 * - Change 'manage_options' to the capability you see fit
 		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
@@ -197,11 +187,39 @@ class Quote_Pool_Admin {
 	}
 
 	/**
+	 *  Getting the quotes, if any, already in the database
+	 *
+	 * @since 1.0.0
+	 * @return rows affected or false
+	 */
+	private static function get_the_quotes() {
+		global $wpdb;
+		$table_name = $wpdb->prefix . Quote_Pool::PLUGIN_TABLENAME;
+		$sql = "SELECT * FROM $table_name";
+		return $wpdb->get_results($sql);
+	}
+
+	/**
+	 *  Inserting new quotes into the database
+	 */
+	public function insert_new_quote() {
+		global $wpdb;
+		$author = $_REQUEST['author'];
+		$quote = $_REQUEST['quote'];
+		$tablename = $wpdb->prefix . 'quote_pool';
+		if(!null == $author) {
+			$wpdb->insert($tablename, array('author' => $author, 'quote' => $quote));
+		}
+	}
+
+
+	/**
 	 * Render the settings page for this plugin.
 	 *
 	 * @since    1.0.0
 	 */
 	public function display_plugin_admin_page() {
+
 		include_once( 'views/admin.php' );
 	}
 
@@ -245,6 +263,18 @@ class Quote_Pool_Admin {
 	 */
 	public function filter_method_name() {
 		// TODO: Define your filter hook callback here
+	}
+
+	/**
+	 * @since 	1.0.0
+	 */
+	// public function
+	/**
+	 * @since 	1.0.0
+	 * @return result of a query
+	 */
+	public function query_the_database() {
+		global $wpdb;
 	}
 
 }

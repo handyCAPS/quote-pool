@@ -17,9 +17,9 @@
 
 	<?php screen_icon(); ?>
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-	<form>
+	<form method="POST" action="<?php $this->insert_new_quote(); ?>">
 		<fieldset>
-		<legend>Quotes</legend>
+		<legend>Nieuwe Quotes</legend>
 			<label for="author">Auteur</label>
 			<input type="text" name="author"><br>
 			<label for="quote">Quote</label>
@@ -27,4 +27,15 @@
 			<input type="submit" value="Opslaan">
 		</fieldset>
 	</form>
+	<div id="quoteList">
+	<h2>Quote Pool</h2>
+		<table>
+			<?php
+				$results = $this->get_the_quotes();
+				foreach ($results as $quote)	{
+					echo '<tr><td>' . $quote->author . '</td><td>' . $quote->quote . '</td></tr>';
+				}
+			 ?>
+		</table>
+	</div>
 </div><!--  end quotePoolWrap  -->

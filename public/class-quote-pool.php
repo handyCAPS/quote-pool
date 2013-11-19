@@ -50,6 +50,11 @@ class Quote_Pool {
 	protected static $instance = null;
 
 	/**
+	 *  The tablename used for this plugin
+	 */
+	const PLUGIN_TABLENAME = 'quote_pool';
+
+	/**
 	 * Initialize the plugin by setting localization and loading public scripts
 	 * and styles.
 	 *
@@ -74,6 +79,7 @@ class Quote_Pool {
 		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
 		add_option('quote-pool-version', $this->get_version() );
+		$this->create_table();
 
 	}
 
@@ -221,6 +227,28 @@ class Quote_Pool {
 		return $wpdb->get_col( $sql );
 
 	}
+
+	/**
+	 *  Setting up the database table
+	 *
+	 * @since 	1.0.0
+	 * @return rows affected or false
+	 */
+	private function create_table() {
+		global $wpdb;
+
+		$tablename = $wpdb->prefix . self::PLUGIN_TABLENAME;
+
+		$sql = "CREATE TABLE $tablename (
+				id int PRIMARY KEY AUTO_INCREMENT,
+				author VARCHAR(30) NOT NULL,
+				quote VARCHAR(80) NOT NULL,
+				UNIQUE KEY id (id)
+			) ";
+		return $wpdb->query($sql);
+	}
+
+
 
 	/**
 	 * Fired for each blog when the plugin is activated.
